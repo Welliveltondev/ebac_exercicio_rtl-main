@@ -10,13 +10,24 @@ describe('Teste para o componente PostComment', () => {
 
     test('Deve adicionar "que legal" no comentario', () => {
         render(<PostComment />)
-        fireEvent.change(screen.getByTextId('campo-texto'), {
+        fireEvent.change(screen.getByTestId('campo-texto'), {
             target: {
                 value: 'que legal'
             }
         })
-        fireEvent.click(screen.getByTextId('btn-submit'))
+        fireEvent.click(screen.getByTestId('btn-submit'))
         expect(screen.getByText('que legal')).toBeInTheDocument()
+    })
+
+    test('Deve adicionar "que massa" no comentario', () => {
+        render(<PostComment />)
+        fireEvent.change(screen.getByTestId('campo-texto'), {
+            target: {
+                value: 'que massa'
+            }
+        })
+        fireEvent.click(screen.getByTestId('btn-submit'))
+        expect(screen.getByText('que massa')).toBeInTheDocument()
     })
 });
 
